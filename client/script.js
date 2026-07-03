@@ -1,54 +1,24 @@
-// ===============================
-// Restaurant Order System
-// script.js
-// ===============================
+// Cart Counter
 
-// Display welcome message
-console.log("Welcome to FoodExpress!");
+let cart = 0;
 
-// ===============================
-// Highlight Active Navigation Link
-// ===============================
+document.getElementById("cart-count").innerHTML = cart;
+
+
+// Highlight Active Page
 
 const currentPage = window.location.pathname.split("/").pop();
 
-const navLinks = document.querySelectorAll(".nav-links a");
+const links = document.querySelectorAll(".nav-links a");
 
-navLinks.forEach(link => {
-    const linkPage = link.getAttribute("href");
+links.forEach(link=>{
 
-    if (linkPage === currentPage) {
-        link.classList.add("active");
-    }
-});
+if(link.getAttribute("href")==currentPage){
 
-// ===============================
-// Cart Count
-// ===============================
+link.classList.add("active");
 
-// Later, this value will come from localStorage or the database.
-let cartCount = 0;
-
-const cartBadge = document.querySelector(".cart-count");
-
-if (cartBadge) {
-    cartBadge.textContent = cartCount;
 }
 
-// ===============================
-// Smooth Scroll
-// ===============================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-    });
 });
+
+console.log("FoodExpress Loaded Successfully");
